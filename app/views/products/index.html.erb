@@ -14,7 +14,6 @@
     <% @products.each do |product| %>
     <tr>
       <td><%= product.name %></td>
-      <% if signed_in? %>
 
 
       <td id="product_<%= product.id %>">
@@ -22,7 +21,7 @@
 <%= render("/products/like", product: product) %>
 
       </td>
-      <% end %>
+      
       <% link_to 'Show', product %>
       <% link_to 'Edit', edit_product_path(product) %>
       <% link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
