@@ -25,6 +25,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'high_voltage'
 group :development do
+  gem "pry"
   gem 'better_errors'
   gem 'rails_layout'
   gem 'spring-commands-rspec'

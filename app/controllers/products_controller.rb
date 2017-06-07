@@ -1,6 +1,17 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
+  # ajax button like
+  def like
+    Like.create!(user_id: params[:user_id], product_id: params[:product_id])
+  end
+
+  # ajax button unlike
+  def unlike
+    @like = Like.find(params[:id])
+    @like.destroy
+  end
+
   # GET /products
   # GET /products.json
   def index

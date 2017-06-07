@@ -1,0 +1,3 @@
+var j = <%= params[:product_id].to_s %>
+
+$('#product_'+j).html('<%= escape_javascript render("/products/like" )%>');
