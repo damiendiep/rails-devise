@@ -1,5 +1,15 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :check, only: [:unlike]
+
+
+  # check if current_user == current like
+  def check
+    @like = Like.find(params[:id]).user_id
+    unless @like == current_user.id
+      redirect_to :root , :notice => "Action non autorisée"
+    end
+  end
 
   # ajax button like
   def like

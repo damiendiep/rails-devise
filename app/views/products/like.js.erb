@@ -1,3 +1,3 @@
 var j = <%= params[:product_id].to_s %>
-
-$('#product_'+j).html('<%= escape_javascript render("/products/like" )%>');
+<% @product = Product.find(params[:product_id]) %>
+$('#product_'+j).html('<%= escape_javascript render("/products/like" , product: @product)%>');

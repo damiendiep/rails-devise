@@ -12,21 +12,14 @@
 
   <tbody>
     <% @products.each do |product| %>
-    <% @find = product.likes.find { |x| x.user_id == current_user.id } %>
     <tr>
       <td><%= product.name %></td>
       <% if signed_in? %>
+
+
       <td id="product_<%= product.id %>">
 
-        <% if (@find != nil) %>
-
-        <%= link_to "Retirer le like", unlike_path(id: @find.id,product_id:product.id),remote: true , data: { disable_with: 'Chargement..' }%>
-
-        <% else %>
-
-        <%= link_to 'Ajouter un like', like_path(user_id: current_user.id, product_id: product.id),remote: true, data: { disable_with: 'Chargement..' }%>
-
-        <% end %>
+<%= render("/products/like", product: product) %>
 
       </td>
       <% end %>
